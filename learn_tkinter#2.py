@@ -29,8 +29,8 @@ label = ttk.Label(master = window, text = 'my label')
 label.pack()
 
 #ttk button
-#excercisebutton = ttk.Button(master = window, text = 'My button', command = button2_func)
-excercisebutton = ttk.Button(master = window, text = 'My button', command = lamda: print('hello'))
+excercisebutton = ttk.Button(master = window, text = 'My button', command = button2_func)
+#excercisebutton = ttk.Button(master = window, text = 'My button', command = lamda: print('hello'))
 excercisebutton.pack()
 
 #ttk button
