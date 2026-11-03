@@ -26,10 +26,10 @@ class PlayerWindow:
 root = tk.Tk()
 root.withdraw()
 
-# ---------------- PLAYER 1 WINDOW (left) ----------------
+#PLAYER 1 WINDOW (left)
 player1 = PlayerWindow(root, "PLAYER 1", "700x800+0+0")
 
-# ---------------- PLAYER 2 WINDOW (right) ----------------
+#PLAYER 2 WINDOW (right)
 player2 = PlayerWindow(root, "PLAYER 2", "700x800+720+0")
 
 root.mainloop()
