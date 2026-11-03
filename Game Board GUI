@@ -1,1 +1,35 @@
+import tkinter as tk
 
+
+class PlayerWindow:
+    def __init__(self, root, title, geometry):
+        self.top = tk.Toplevel(root)
+        self.top.title(title)
+        self.top.geometry(geometry)
+        self.top.protocol("WM_DELETE_WINDOW", root.destroy)
+
+        tk.Label(self.top, text=title, font=("Arial", 14, "bold")).pack(fill="x")
+
+        # Opponent's stable
+        self.opp_stable = tk.LabelFrame(self.top, text="Opponent's Stable")
+        self.opp_stable.pack(fill="both", expand=True, padx=10, pady=5)
+
+        # Your stable
+        self.my_stable = tk.LabelFrame(self.top, text="Your Stable")
+        self.my_stable.pack(fill="both", expand=True, padx=10, pady=5)
+
+        # Your hand
+        self.hand = tk.LabelFrame(self.top, text="Your Hand")
+        self.hand.pack(fill="both", expand=True, padx=10, pady=5)
+
+
+root = tk.Tk()
+root.withdraw()
+
+# ---------------- PLAYER 1 WINDOW (left) ----------------
+player1 = PlayerWindow(root, "PLAYER 1", "700x800+0+0")
+
+# ---------------- PLAYER 2 WINDOW (right) ----------------
+player2 = PlayerWindow(root, "PLAYER 2", "700x800+720+0")
+
+root.mainloop()
