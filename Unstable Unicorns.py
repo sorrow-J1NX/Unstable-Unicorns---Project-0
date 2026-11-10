@@ -1,27 +1,99 @@
-#get players
+#players
 
-#how many?
+p1 = []
+p2 = []
+p3 = []
+p4 = []
+p5 = []
+p6 = []
+p7 = []
+p8 = []
 
+
+#How mnay players are playing?
 players = int(input())
 
-for i in range(0, player):
 
+#create cards and decks
 
-
-
-
-
-
-
-
-#create decks
-
-class Cards:
-    def __init__(self, type, name, ability):
+class BabyCorns:
+    def __init__(self, type, name, amount):
         self.name = name
         self.type = type
+        self.amount = amount
+
+class BasicCorns:
+    def __init__(self, type, name, amount):
+        self.name = name
+        self.type = type
+        self.amount = amount
+
+class MagicCorns:
+    def __init__(self, type, name, amount, ability):
+        self.name = name
+        self.type = type
+        self.amount = amount
+        self.ability = ability
+
+class MagicSpell:
+    def __init__(self, type, name, amount, ability):
+        self.name = name
+        self.type = type
+        self.amount = amount
         self.ability = ability
 
 
-nursery_deck = ["bby_red" * 1,]
-deck = ["bsc_red"] * 3 + ["bsc_orange"] * 3 + ["bsc_yellow"] * 3 + ["bsc_green"] * 3 + ["bsc_blue"] * 3 + ["bsc_purple"] * 3 + ["bsc_narwhal"] * 1 + ["mgu_rhinocorn"] * 1 + ["mgu_extremelyfertileunicorn"] * 1 + ["mgu_magickittencorn"] * 1 + ["mgu_stabbytheunicorn"] * 1 + ["mgu_puppicorn"] * 1 + ["mgu_rainbowunicorn"] * 1 + ["mgu_zombieunicorn"] * 1 + ["mgu_extremelydestructiveunicorn"] * 1 + ["mgu_chainsawunicorn"] * 1 + ["mgu_llamacorn"] * 1 + ["mgu_americorn"] * 1 + ["mgu_ginormousunicorn"] * 1 + ["mgu_seductiveunicorn"] * 1 + ["mgu_angelunicorn"] * 1 + ["mgu_queenbeeunicorn"] * 1 + ["mgu_greedyflyingunicorn"] * 1 + ["mgu_annoyingflyingunicorn"] * 1 + ["mgu_magicalflyingunicorn"] * 1 + ["mgu_swiftflyingunicorn"] * 1 + ["mgu_majesticflyingunicorn"] * 1 + ["mgu_unicornphoenix"] * 1 + ["mgu_unicornonthecob"] * 1 + ["mgu_blackknightunicorn"] * 1 + ["mgu_sharkwithahorn"] * 1 + ["mgu_shabbythenarwhal"] * 1 + ["mgu_narwhaltorpedo"] * 1 + ["mgu_alluringnarwhal"] * 1 + [""] * 1 + [""] * 1 + [""] * 1 + [""] * 1 + [""] * 1 + [""] * 1 + [""] * 1 + [""] * 1 + [""] * 1 + [""] * 1 + [""] * 1 + [""] * 1 + [""] * 1 + [""] * 1 + [""] * 1 + [""] * 1 +[""] * 1 + [""] * 1 + [""] * 1 + [""] * 1 + [""] * 1 +
+class Interrupts:
+    def __init__(self, type, name, amount, ability):
+        self.name = name
+        self.type = type
+        self.amount = amount
+        self.ability = ability
+
+
+class Upgrades:
+    def __init__(self, type, name, amount, ability):
+        self.name = name
+        self.type = type
+        self.amount = amount
+        self.ability = ability
+
+
+class Downgrades:
+    def __init__(self, type, name, amount, ability):
+        self.name = name
+        self.type = type
+        self.amount = amount
+        self.ability = ability
+
+#nursery cards
+red = BabyCorns("bby", "Baby Unicorn", 1)
+pink = BabyCorns("bby", "Baby Unicorn", 1)
+orange = BabyCorns("bby", "Baby Unicorn", 1)
+yellow = BabyCorns("bby", "Baby Unicorn", 1)
+green = BabyCorns("bby", "Baby Unicorn", 1)
+blue = BabyCorns("bby", "Baby Unicorn", 1)
+purple = BabyCorns("bby", "Baby Unicorn", 1)
+black = BabyCorns("bby", "Baby Unicorn", 1)
+white = BabyCorns("bby", "Baby Unicorn", 1)
+brown = BabyCorns("bby", "Baby Unicorn", 1)
+rainbow = BabyCorns("bby", "Baby Unicorn", 1)
+death = BabyCorns("bby", "Baby Unicorn", 1)
+narwhal = BabyCorns("bby", "Baby Unicorn", 1)
+
+
+#main deck
+
+#basics
+Red = BasicCorns("bsc", "Basic Unicorn", 3)
+Orange BasicCorns("bsc", "Basic Unicorn", 3)
+Yellow = BasicCorns("bsc", "Basic Unicorn", 3)
+Green = BasicCorns("bsc", "Basic Unicorn", 3)
+Blue = BasicCorns("bsc", "Basic Unicorn", 3)
+Indigo = BasicCorns("bsc", "Basic Unicorn", 3)
+Purple = BasicCorns("bsc", "Basic Unicorn", 3)
+Narwhal = BasicCorns("bsc", "Basic Unicorn", 3)
+
+
+#magics
+Rhinocorn = MagicCorns("bsc", "Basic Unicorn", 3, )
