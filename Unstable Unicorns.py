@@ -96,4 +96,45 @@ Narwhal = BasicCorns("bsc", "Basic Unicorn", 3)
 
 
 #magics
-Rhinocorn = MagicCorns("bsc", "Basic Unicorn", 3, )
+Rhinocorn = MagicCorns("bsc", "Basic Unicorn", 1, rhinocorn)
+def rhinocorn()
+
+
+
+#Set up
+
+#baby unicorn choosing
+
+order = 0
+while order != players + 1:
+
+
+
+
+
+#Turn Loop
+turn = 0
+#beginning
+while turn != players:
+
+
+#action
+
+#end
+
+
+
+#Hand
+
+
+
+
+#Interrupts
+
+
+
+
+#Win Condition
+
+
+
