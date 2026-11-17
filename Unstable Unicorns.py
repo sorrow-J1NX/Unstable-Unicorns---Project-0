@@ -5,7 +5,7 @@ import tkinter as tk
 from tkinter import messagebox, simpledialog
 
 # IMAGES
-IMAGE_FOLDER = r"C:\Users\coold\Computer Science\Unstable Unicorns\Unstable Unicorns Card Images"
+IMAGE_FOLDER = r"C:\Users\benjarth\PycharmProjects\Unstable-Unicorns---Project-0\Card Images"
 IMAGE_EXTENSION = ".png"
 CARD_BACK = IMAGE_FOLDER + "card_back" + IMAGE_EXTENSION
 
@@ -45,76 +45,78 @@ if players is None:
 stables = [p1, p2, p3, p4, p5, p6, p7, p8][:players]
 hands = [h1, h2, h3, h4, h5, h6, h7, h8][:players]
 
-WIN_UNICORNS = 7      # unicorns in your stable needed to win
+WIN_UNICORNS = 7      #win condition
 START_HAND = 5
 HAND_LIMIT = 7
 
 
 #create cards and decks
-# Every card is given a short image name (like "red"). The full path is built from
-# IMAGE_FOLDER + type + "_" + name + IMAGE_EXTENSION, e.g. bby_red.png,
-# so the card and its picture are linked together.
 
 class BabyCorns:
+    path = IMAGE_FOLDER
     def __init__(self, type, name, amount, image):
         self.name = name
         self.type = type
         self.amount = amount
         self.ability = None
-        self.image = IMAGE_FOLDER + type + "_" + image + IMAGE_EXTENSION
+        self.image = type + "_" + image + IMAGE_EXTENSION
 
 class BasicCorns:
+    path = IMAGE_FOLDER
     def __init__(self, type, name, amount, image):
         self.name = name
         self.type = type
         self.amount = amount
         self.ability = None
-        self.image = IMAGE_FOLDER + type + "_" + image + IMAGE_EXTENSION
+        self.image = type + "_" + image + IMAGE_EXTENSION
 
 class MagicCorns:
+    path = IMAGE_FOLDER
     def __init__(self, type, name, amount, ability, image):
         self.name = name
         self.type = type
         self.amount = amount
         self.ability = ability
-        self.image = IMAGE_FOLDER + type + "_" + image + IMAGE_EXTENSION
+        self.image = type + "_" + image + IMAGE_EXTENSION
 
 class MagicSpell:
+    path = IMAGE_FOLDER
     def __init__(self, type, name, amount, ability, image):
         self.name = name
         self.type = type
         self.amount = amount
         self.ability = ability
-        self.image = IMAGE_FOLDER + type + "_" + image + IMAGE_EXTENSION
+        self.image = type + "_" + image + IMAGE_EXTENSION
 
 
 class Interrupts:
+    path = IMAGE_FOLDER
     def __init__(self, type, name, amount, ability, image):
         self.name = name
         self.type = type
         self.amount = amount
         self.ability = ability
-        self.image = IMAGE_FOLDER + type + "_" + image + IMAGE_EXTENSION
+        self.image = type + "_" + image + IMAGE_EXTENSION
 
 
 class Upgrades:
-    # ability is a text tag that the game checks for (see helper functions)
+    path = IMAGE_FOLDER
     def __init__(self, type, name, amount, ability, image):
         self.name = name
         self.type = type
         self.amount = amount
         self.ability = ability
-        self.image = IMAGE_FOLDER + type + "_" + image + IMAGE_EXTENSION
+        self.image = type + "_" + image + IMAGE_EXTENSION
 
 
 class Downgrades:
-    # ability is a text tag that the game checks for (see helper functions)
+    path = IMAGE_FOLDER
     def __init__(self, type, name, amount, ability, image):
         self.name = name
         self.type = type
         self.amount = amount
         self.ability = ability
-        self.image = IMAGE_FOLDER + type + "_" + image + IMAGE_EXTENSION
+        self.image = type + "_" + image + IMAGE_EXTENSION
 
 
 UNICORN_TYPES = ("bby", "bsc", "mgc")
@@ -127,13 +129,13 @@ def is_unicorn(card):
 nursery = []
 deck = []
 discard_pile = []
-current = 0          # whose turn it is (0 = player 1)
+current = 0          # whose turn it is
 actions_left = 0
 hidden = True        # hides the hand while passing the screen around
 game_over = False
 
 
-# CARD ABILITIES (each one gets the number of the player using it)
+# CARD ABILITIES
 
 def draw_card(p):
     global deck, discard_pile
@@ -191,19 +193,12 @@ def llamacorn(p):
     draw_card(p)
     discard_from_hand(p, "Llamacorn: discard a card")
 
-def unicorn_wizard(p):
-    # take a card from the discard pile back into your hand
-    if len(discard_pile) == 0:
-        messagebox.showinfo("Unicorn Wizard", "The discard pile is empty.")
-        return
-    i = choose_card("Unicorn Wizard: take which card?", discard_pile)
-    hands[p].append(discard_pile.pop(i))
 
 def card_surge(p):
     draw_card(p)
     draw_card(p)
 
-def borrow(p):
+def seductive_unicorn(p):
     # steal a unicorn from another stable
     targets = enemy_unicorns(p)
     if len(targets) == 0:
@@ -266,12 +261,9 @@ Narwhal = BasicCorns("bsc", "Narwhal", 3, "narwhal")
 #magics
 Rhinocorn = MagicCorns("mgc", "Rhinocorn", 1, rhinocorn, "rhinocorn")
 Llamacorn = MagicCorns("mgc", "Llamacorn", 2, llamacorn, "llamacorn")
-UnicornWizard = MagicCorns("mgc", "Unicorn Wizard", 2, unicorn_wizard, "unicornwizard")
 
 #spells
 CardSurge = MagicSpell("spl", "Card Surge", 3, card_surge, "cardsurge")
-Borrow = MagicSpell("spl", "Borrow", 2, borrow, "borrow")
-SecondChance = MagicSpell("spl", "Second Chance", 2, second_chance, "secondchance")
 
 #interrupts (play one on another player's turn to cancel the card they play)
 Neigh = Interrupts("int", "Neigh", 6, None, "neigh")
@@ -282,14 +274,11 @@ DoubleDutch = Upgrades("upg", "Double Dutch", 2, "extra_draw", "doubledutch")
 
 #downgrades
 BlindingLight = Downgrades("dwn", "Blinding Light", 2, "blind", "blindinglight")
-HeavyHooves = Downgrades("dwn", "Heavy Hooves", 2, "hand5", "heavyhooves")
 
 main_templates = [Red, Orange, Yellow, Green, Blue, Indigo, Purple, Narwhal,
-                  Rhinocorn, Llamacorn, UnicornWizard,
-                  CardSurge, Borrow, SecondChance,
-                  Neigh,
-                  RainbowAura, DoubleDutch,
-                  BlindingLight, HeavyHooves]
+                  Rhinocorn, Llamacorn, CardSurge,
+                  Neigh, RainbowAura, DoubleDutch,
+                  BlindingLight]
 
 
 def build_pile(templates):
@@ -306,7 +295,7 @@ SMALL = (62, 87)      # card size in stables
 COLORS = {"bby": "#f8b4d9", "bsc": "#c9b8f5", "mgc": "#8fd3f4",
           "spl": "#ffd479", "int": "#ff8a80", "upg": "#a5e8a0", "dwn": "#b0b0b0"}
 
-image_cache = {}   # keeps pictures alive (tkinter forgets them otherwise)
+image_cache = {}   # keeps pictures alive
 
 def load_image(path, size):
     key = (path, size)
@@ -319,7 +308,7 @@ def load_image(path, size):
         if shrink > 1:
             img = img.subsample(shrink)
     except tk.TclError:
-        img = None      # image not found -> a placeholder gets drawn
+        img = None      # creates placeholder if not found
     image_cache[key] = img
     return img
 
@@ -565,6 +554,5 @@ for p in range(players):
         draw_card(p)
 
 # TURN LOOP is handled by the buttons:
-# begin_turn() -> action (play_card / draw_action) -> end_turn()
 refresh()
 root.mainloop()
