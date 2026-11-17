@@ -5,9 +5,6 @@ import tkinter as tk
 from tkinter import messagebox, simpledialog
 
 # IMAGES
-# Put the path to your folder of card images here.
-# Each card looks for a file named  type_name  (e.g. bby_red, bsc_red,
-# mgc_rhinocorn) plus the extension below (png or gif work without extra installs).
 IMAGE_FOLDER = r"C:\Users\coold\Computer Science\Unstable Unicorns\Unstable Unicorns Card Images"
 IMAGE_EXTENSION = ".png"
 CARD_BACK = IMAGE_FOLDER + "card_back" + IMAGE_EXTENSION
