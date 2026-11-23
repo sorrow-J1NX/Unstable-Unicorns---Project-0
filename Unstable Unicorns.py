@@ -46,7 +46,7 @@ stables = [p1, p2, p3, p4, p5, p6, p7, p8][:players]
 hands = [h1, h2, h3, h4, h5, h6, h7, h8][:players]
 
 WIN_UNICORNS = 7      #win condition
-START_HAND = 5
+START_HAND = 4
 HAND_LIMIT = 7
 
 
@@ -59,7 +59,7 @@ class BabyCorns:
         self.type = type
         self.amount = amount
         self.ability = None
-        self.image = type + "_" + image + IMAGE_EXTENSION
+        self.image = self.path + "\\" + type + "_" + image + IMAGE_EXTENSION
 
 class BasicCorns:
     path = IMAGE_FOLDER
@@ -68,7 +68,7 @@ class BasicCorns:
         self.type = type
         self.amount = amount
         self.ability = None
-        self.image = type + "_" + image + IMAGE_EXTENSION
+        self.image = self.path + "\\" + type + "_" + image + IMAGE_EXTENSION
 
 class MagicCorns:
     path = IMAGE_FOLDER
@@ -77,7 +77,7 @@ class MagicCorns:
         self.type = type
         self.amount = amount
         self.ability = ability
-        self.image = type + "_" + image + IMAGE_EXTENSION
+        self.image = self.path + "\\" + type + "_" + image + IMAGE_EXTENSION
 
 class MagicSpell:
     path = IMAGE_FOLDER
@@ -86,7 +86,7 @@ class MagicSpell:
         self.type = type
         self.amount = amount
         self.ability = ability
-        self.image = type + "_" + image + IMAGE_EXTENSION
+        self.image = self.path + "\\" + type + "_" + image + IMAGE_EXTENSION
 
 
 class Interrupts:
@@ -96,7 +96,7 @@ class Interrupts:
         self.type = type
         self.amount = amount
         self.ability = ability
-        self.image = type + "_" + image + IMAGE_EXTENSION
+        self.image = self.path + "\\" + type + "_" + image + IMAGE_EXTENSION
 
 
 class Upgrades:
@@ -106,7 +106,7 @@ class Upgrades:
         self.type = type
         self.amount = amount
         self.ability = ability
-        self.image = type + "_" + image + IMAGE_EXTENSION
+        self.image = self.path + "\\" + type + "_" + image + IMAGE_EXTENSION
 
 
 class Downgrades:
@@ -116,7 +116,7 @@ class Downgrades:
         self.type = type
         self.amount = amount
         self.ability = ability
-        self.image = type + "_" + image + IMAGE_EXTENSION
+        self.image = self.path + "\\" + type + "_" + image + IMAGE_EXTENSION
 
 
 UNICORN_TYPES = ("bby", "bsc", "mgc")
@@ -273,12 +273,12 @@ RainbowAura = Upgrades("upg", "Rainbow Aura", 2, "shield", "rainbowaura")
 DoubleDutch = Upgrades("upg", "Double Dutch", 2, "extra_draw", "doubledutch")
 
 #downgrades
-BlindingLight = Downgrades("dwn", "Blinding Light", 2, "blind", "blindinglight")
+Pandamonium = Downgrades("dwn", "Pandamonium", 2, "blind", "pandamonium")
 
 main_templates = [Red, Orange, Yellow, Green, Blue, Indigo, Purple, Narwhal,
                   Rhinocorn, Llamacorn, CardSurge,
                   Neigh, RainbowAura, DoubleDutch,
-                  BlindingLight]
+                  Pandamonium]
 
 
 def build_pile(templates):
@@ -308,9 +308,10 @@ def load_image(path, size):
         if shrink > 1:
             img = img.subsample(shrink)
     except tk.TclError:
-        img = None      # creates placeholder if not found
+        img = None   # creates placeholder if not found
     image_cache[key] = img
     return img
+
 
 def card_widget(parent, card, size, command=None, label=None):
     w, h = size
@@ -365,7 +366,7 @@ def unicorn_count(p):
 
 def can_win(p):
     for c in stables[p]:
-        if c.ability == "blind":      # Blinding Light: unicorns don't count
+        if c.ability == "blind":
             return False
     return unicorn_count(p) >= WIN_UNICORNS
 
