@@ -266,14 +266,14 @@ Llamacorn = MagicCorns("mgc", "Llamacorn", 2, llamacorn, "llamacorn")
 CardSurge = MagicSpell("spl", "Card Surge", 3, card_surge, "cardsurge")
 
 #interrupts (play one on another player's turn to cancel the card they play)
-Neigh = Interrupts("int", "Neigh", 6, None, "neigh")
+Neigh = Interrupts("ins", "Neigh", 6, None, "neigh")
 
 #upgrades
 RainbowAura = Upgrades("upg", "Rainbow Aura", 2, "shield", "rainbowaura")
 DoubleDutch = Upgrades("upg", "Double Dutch", 2, "extra_draw", "doubledutch")
 
 #downgrades
-Pandamonium = Downgrades("dwn", "Pandamonium", 2, "blind", "pandamonium")
+Pandamonium = Downgrades("dwn", "Pandamonium", 100, "blind", "pandamonium")
 
 main_templates = [Red, Orange, Yellow, Green, Blue, Indigo, Purple, Narwhal,
                   Rhinocorn, Llamacorn, CardSurge,
