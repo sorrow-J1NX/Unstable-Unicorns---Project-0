@@ -273,7 +273,7 @@ RainbowAura = Upgrades("upg", "Rainbow Aura", 2, "shield", "rainbowaura")
 DoubleDutch = Upgrades("upg", "Double Dutch", 2, "extra_draw", "doubledutch")
 
 #downgrades
-Pandamonium = Downgrades("dwn", "Pandamonium", 100, "blind", "pandamonium")
+Pandamonium = Downgrades("dwn", "Pandamonium", 2, "blind", "pandamonium")
 
 main_templates = [Red, Orange, Yellow, Green, Blue, Indigo, Purple, Narwhal,
                   Rhinocorn, Llamacorn, CardSurge,
